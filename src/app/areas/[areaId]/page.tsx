@@ -1,10 +1,11 @@
-import Link from "next/link";
-import { notFound } from "next/navigation";
-import { connection } from "next/server";
-import { Notice, PROBLEM } from "@/components/ui";
 import { StayBrowser } from "@/components/StayBrowser";
+import { Notice, PROBLEM } from "@/components/ui";
 import { getArea, PHOTO_CREDITS } from "@/lib/data";
 import { getStays } from "@/lib/places";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { connection } from 'next/server';
+
 
 export default async function AreaPage({ params }: PageProps<"/areas/[areaId]">) {
   const area = getArea((await params).areaId);

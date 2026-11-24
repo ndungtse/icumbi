@@ -11,7 +11,6 @@ const SKY: Record<string, [string, string]> = {
 const LIT = "#f6dc8c";
 const DIM = "#8b72c4";
 
-/** Windows in a grid: x, y of the first one, columns, rows, spacing. */
 function windows(x: number, y: number, cols: number, rows: number, dx: number, dy: number, w = 8, h = 9) {
   return Array.from({ length: cols * rows }, (_, i) => (
     <rect key={i} x={x + (i % cols) * dx} y={y + Math.floor(i / cols) * dy} width={w} height={h} rx="1.5" fill={i % 3 === 1 ? DIM : LIT} />

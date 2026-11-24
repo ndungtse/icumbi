@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
+import { AREAS } from "@/lib/data";
 import Link from "next/link";
 import { useState } from "react";
-import { input } from "@/components/ui";
-import { AREAS } from "@/lib/data";
+import { input } from "./ui";
 
-/** Search box for the hero: type an area and pick it from the suggestions. */
 export function AreaSearch() {
   const [query, setQuery] = useState("");
   const matches = query.trim() ? AREAS.filter((a) => a.name.toLowerCase().includes(query.trim().toLowerCase())).slice(0, 6) : [];
