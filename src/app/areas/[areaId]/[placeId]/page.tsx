@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { connection } from "next/server";
+import { connection } from 'next/server';
 import { NearbyExplorer } from "@/components/NearbyExplorer";
 import { button, Notice, PROBLEM } from "@/components/ui";
 import { getArea, PHOTO_CREDITS, STAY_TYPES } from "@/lib/data";
@@ -107,3 +107,4 @@ export default async function StayPage({ params }: PageProps<"/areas/[areaId]/[p
     </div>
   );
 }
+

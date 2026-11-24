@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { input, pill } from "./ui";
 import { PlacesMap } from "@/components/PlacesMap";
-import { pill } from "@/components/ui";
-import { CATEGORIES, type CategoryId, formatDistance, type Nearby, type Stay } from "@/lib/data";
+import { Stay, Nearby, CategoryId, CATEGORIES, formatDistance } from "@/lib/data";
 
 const RADII = [500, 1000, 2000];
 
-/** What is within walking distance of a stay: pick a distance and a category. */
 export function NearbyExplorer({ stay, nearby }: { stay: Stay; nearby: Nearby[] }) {
   const [radius, setRadius] = useState(1000);
   const [category, setCategory] = useState<CategoryId>("food");

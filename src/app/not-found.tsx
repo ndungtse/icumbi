@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Notice } from "@/components/ui";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -13,3 +13,4 @@ export default function NotFound() {
     </div>
   );
 }
+

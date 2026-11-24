@@ -4,7 +4,6 @@
 @theme {
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
 
-  /* Surfaces are told apart by tone, not borders. */
   --color-surface: #f3f2f8;
   --color-surface-2: #e8e6f1;
   --color-ink: #17142b;
@@ -20,7 +19,6 @@ body {
   color: var(--color-ink);
 }
 
-/* One soft glow instead of the browser's outline. */
 :focus-visible,
 input:focus,
 select:focus {
@@ -51,3 +49,4 @@ select:focus {
   transform: scale(1.6);
   z-index: 3;
 }
+
