@@ -57,7 +57,7 @@ visitor ──> https://icumbi.ndungutsecharles.tech ──> lb-01 (HAProxy: HTT
                                                         └──> web-02 (nginx :80 ──> app :3000)
 ```
 
-**One build, copied to both servers.** The servers have 1 GB of memory, and two separate builds would have different file names, so a page from web-01 could ask web-02 for a file it doesn't have. The app is built once on Linux (on web-01) and the same archive is installed on both.
+**One build, copied to both servers.** The servers have 1 GB of memory, and two separate builds would have different file names, so a page from web-01 could ask web-02 for a file it doesn't have. The app is built once on Linux (on web-01) and the same archive is installed on both. (The servers are ARM machines, so the build must be made on ARM Linux, not on a Mac.)
 
 Replace `<web-01-ip>`, `<web-02-ip>` and `<lb-01-ip>` with the servers' addresses. Commands run from the project folder on your computer unless the step says otherwise.
 
@@ -75,7 +75,6 @@ ssh ubuntu@<web-01-ip>
 On web-01:
 
 ```bash
-uname -m                                   # expect x86_64 (the setup script installs the x64 build of Node.js)
 cd ~/icumbi
 sudo deploy/setup-web.sh icumbi.ndungutsecharles.tech
 sudo nano /etc/icumbi/icumbi.env           # set GEOAPIFY_KEY=...

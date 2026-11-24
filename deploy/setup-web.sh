@@ -33,7 +33,12 @@ fi
 
 echo "== Node.js $NODE_VERSION"
 if [ ! -x /opt/node/bin/node ] || [ "$(/opt/node/bin/node -v)" != "v$NODE_VERSION" ]; then
-  archive="node-v$NODE_VERSION-linux-x64.tar.gz"
+  case "$(uname -m)" in
+    x86_64) arch=x64 ;;
+    aarch64 | arm64) arch=arm64 ;;
+    *) echo "Unsupported CPU: $(uname -m)" >&2; exit 1 ;;
+  esac
+  archive="node-v$NODE_VERSION-linux-$arch.tar.gz"
   work=$(mktemp -d)
   curl -fsSL -o "$work/$archive" "https://nodejs.org/dist/v$NODE_VERSION/$archive"
   curl -fsSL -o "$work/SHASUMS256.txt" "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt"
