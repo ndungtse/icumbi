@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@theme {
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+
+  /* Surfaces are told apart by tone, not borders. */
+  --color-surface: #f3f2f8;
+  --color-surface-2: #e8e6f1;
+  --color-ink: #17142b;
+  --color-muted: #6a6782;
+  --color-primary: #4a2a8a;
+  --color-primary-dark: #371f68;
+  --color-primary-soft: #e8e2f6;
+  --color-coral: #f26b4d;
+  --color-ring: rgb(74 42 138 / 0.28);
+}
+
+body {
+  color: var(--color-ink);
+}
+
+/* One soft glow instead of the browser's outline. */
+:focus-visible,
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--color-ring);
+}
+
+.pin {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  border: 2px solid #fff;
+  background: var(--color-coral);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.35);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.pin-stay {
+  background: var(--color-primary);
+}
+.pin-home {
+  width: 24px;
+  height: 24px;
+  background: var(--color-ink);
+  z-index: 2;
+}
+.pin-active {
+  transform: scale(1.6);
+  z-index: 3;
+}
