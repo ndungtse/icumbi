@@ -1,0 +1,30 @@
+# systemd unit for the icumbi web app. Installed by deploy/setup-web.sh.
+[Unit]
+Description=icumbi web app
+After=network.target
+
+[Service]
+Type=simple
+User=icumbi
+Group=icumbi
+WorkingDirectory=/opt/icumbi/current
+ExecStart=/opt/node/bin/node server.js
+Environment=NODE_ENV=production
+Environment=PORT=3000
+# Listen on this machine only; nginx is the only way in.
+Environment=HOSTNAME=127.0.0.1
+Environment=ICUMBI_DATA_DIR=/var/lib/icumbi
+# The server has 1 GB of memory. Keep Node's heap small, and let systemd
+# restart the app rather than let it starve the machine.
+Environment=NODE_OPTIONS=--max-old-space-size=256
+MemoryLimit=450M
+# Keys and limits for this server. Not in the repository.
+EnvironmentFile=/etc/icumbi/icumbi.env
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=full
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
