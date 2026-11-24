@@ -51,4 +51,4 @@ next-env.d.ts
 # UI design skills for the coding assistant (not part of the app)
 /.claude/skills/
 AGENTS.md
-RUNBOOK.local.md
+*.local.md
