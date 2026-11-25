@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any -- Geoapify and Commons answers are loosely shaped */
 import { CATEGORIES, type Area, type Nearby, type Photo, type Stay } from "./data";
 
 const GEOAPIFY = "https://api.geoapify.com/v2/places";
 const COMMONS = "https://commons.wikimedia.org/w/api.php";
-// Wikimedia asks every client to identify itself.
+
 const USER_AGENT = "icumbi-student-project/1.0 (https://github.com)";
 
-// Results are kept for an hour so repeat visits don't use up the free daily requests.
 const cache = new Map<string, { at: number; value: unknown }>();
 async function cached<T>(key: string, load: () => Promise<T>): Promise<T> {
   const hit = cache.get(key);
@@ -89,7 +87,7 @@ export function getNearby(stay: Stay): Promise<Nearby[]> {
   });
 }
 
-/** Photos taken near a point, from Wikimedia Commons. Failure just means no photos. */
+
 export function getPhotos(lat: number, lng: number): Promise<Photo[]> {
   return cached(`photos:${lat.toFixed(3)},${lng.toFixed(3)}`, async () => {
     try {

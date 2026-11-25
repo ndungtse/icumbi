@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { PlacesMap } from "@/components/PlacesMap";
-import { StayArt } from "@/components/StayArt";
-import { input } from "@/components/ui";
+import { input } from "./ui";
+import { PlacesMap } from "./PlacesMap";
+import { StayArt } from "./StayArt";
 import { type Area, distanceM, formatDistance, type Stay, STAY_TYPES } from "@/lib/data";
 
+
 type Sort = "near" | "name";
-const field = `${input} py-2.5`;
+const field = `${input} py-2.5`
+
 
 function Thumb({ stay }: { stay: Stay }) {
   if (stay.image) {
@@ -18,7 +20,6 @@ function Thumb({ stay }: { stay: Stay }) {
   return <StayArt type={stay.type} />;
 }
 
-/** The stays of one area as photo cards next to a map, with search, type filter and sorting. */
 export function StayBrowser({ stays, area }: { stays: Stay[]; area: Area }) {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("all");
@@ -101,3 +102,4 @@ export function StayBrowser({ stays, area }: { stays: Stay[]; area: Area }) {
     </div>
   );
 }
+

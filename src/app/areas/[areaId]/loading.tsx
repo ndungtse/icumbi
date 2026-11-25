@@ -1,3 +1,4 @@
+
 export default function Loading() {
   return (
     <div role="status" aria-label="Loading" className="mx-auto max-w-6xl px-4 py-12">
