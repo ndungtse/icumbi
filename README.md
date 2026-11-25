@@ -3,7 +3,7 @@
 **Find a place to stay in Rwanda, and see what's around it.** ("Icumbi" is Kinyarwanda for a place to stay.)
 
 - **Live site:** https://icumbi.ndungutsecharles.tech
-- **Demo video:** <!-- TODO: paste the video link (max 2 minutes) -->
+- **Demo video:** https://youtu.be/Utdv8JQ0Yq0
 - **Login:** none needed. The API key is given in the submission comment.
 
 ## Why it exists
